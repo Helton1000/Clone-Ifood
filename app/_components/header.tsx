@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import {
   HeartIcon,
   HomeIcon,
+  ListOrderedIcon,
   LogInIcon,
   LogOutIcon,
   MenuIcon,
@@ -105,23 +106,17 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
-                  asChild
                 >
-                  <Link href="/my-orders">
-                    <ScrollTextIcon size={16} />
-                    <span className="block">Meus Pedidos</span>
-                  </Link>
+                  <ScrollTextIcon size={16} />
+                  <span className="block">Meus Pedidos</span>
                 </Button>
 
                 <Button
                   variant="ghost"
                   className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
-                  asChild
                 >
-                  <Link href="/my-favorite-restaurants">
-                    <HeartIcon size={16} />
-                    <span className="block">Restaurantes Favoritos</span>
-                  </Link>
+                  <HeartIcon size={16} />
+                  <span className="block">Restaurantes Favoritos</span>
                 </Button>
               </>
             )}
