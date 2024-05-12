@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import {
   HeartIcon,
   HomeIcon,
-  ListOrderedIcon,
   LogInIcon,
   LogOutIcon,
   MenuIcon,
