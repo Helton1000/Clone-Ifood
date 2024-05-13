@@ -23,7 +23,7 @@ const RestaurantItem = ({
   userFavoriteRestaurants,
 }: RestaurantItemProps) => {
   const { data } = useSession();
-  const isFavorite = userFavoriteRestaurants.some(
+  const isFavorite = userFavoriteRestaurants?.some(
     (fav) => fav.restaurantId === restaurant.id,
   );
 

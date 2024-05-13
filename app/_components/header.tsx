@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
 import { Button } from "./ui/button";
 import {
   HeartIcon,
@@ -31,14 +30,20 @@ const Header = () => {
 
   return (
     <div className="flex justify-between px-5 pt-6">
-      <div className="relative h-[30px] w-[100px]">
-        <Link href="/">
-          <Image src="/logo.png" fill alt="Ifood" className="object-cover" />
-        </Link>
-      </div>
+      <Link href="/">
+        <div className="relative h-[30px] w-[100px]">
+          <Image
+            src="/logo.png"
+            alt="FSW Foods"
+            sizes="100%"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </Link>
 
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button
             size="icon"
             variant="outline"
@@ -62,8 +67,8 @@ const Header = () => {
                       src={data?.user?.image as string | undefined}
                     />
                     <AvatarFallback>
-                      {data?.user?.name?.split("")[0][0]}
-                      {data?.user?.name?.split("")[1][0]}
+                      {data?.user?.name?.split(" ")[0][0]}
+                      {data?.user?.name?.split(" ")[1][0]}
                     </AvatarFallback>
                   </Avatar>
 
@@ -81,7 +86,7 @@ const Header = () => {
               <div className="flex items-center justify-between pt-10">
                 <h2 className="font-semibold">Olá. Faça seu login!</h2>
                 <Button size="icon" onClick={handleSignInClick}>
-                  <LogInIcon size={20} />
+                  <LogInIcon />
                 </Button>
               </div>
             </>
@@ -95,12 +100,9 @@ const Header = () => {
             <Button
               variant="ghost"
               className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
-              asChild
             >
-              <Link href="/">
-                <HomeIcon size={16} />
-                <span className="block">Início</span>
-              </Link>
+              <HomeIcon size={16} />
+              <span className="block">Início</span>
             </Button>
 
             {data?.user && (
