@@ -15,7 +15,7 @@ import {
   formatCurrency,
   calculateProductTotalPrice,
 } from "@/app/_helpers/price";
-import DeliveryInfo from "@/app/delivery-info";
+import DeliveryInfo from "@/app/_components/delivery-info";
 import { Prisma } from "@prisma/client";
 import {
   AlertDialog,
@@ -91,6 +91,7 @@ const ProductDetails = ({
               src={product.restaurant.imageUrl}
               alt={product.restaurant.name}
               fill
+              sizes="100%"
               className="rounded-full object-cover"
             />
           </div>
