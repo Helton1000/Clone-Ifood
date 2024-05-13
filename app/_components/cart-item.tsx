@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { CartContext, CartProduct } from "../_context/cart";
 import { calculateProductTotalPrice, formatCurrency } from "../_helpers/price";
-import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import { Button } from "./ui/button";
-import { useContext } from "react";
+import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
+import { memo, useContext } from "react";
 
 interface CartItemProps {
   cartProduct: CartProduct;
@@ -46,7 +46,6 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
                 calculateProductTotalPrice(cartProduct) * cartProduct.quantity,
               )}
             </h4>
-
             {cartProduct.discountPercentage > 0 && (
               <span className="text-xs text-muted-foreground line-through">
                 {formatCurrency(
@@ -78,7 +77,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
           </div>
         </div>
       </div>
-      {/* BOTÃO DE DELETAR */}
+
       <Button
         size="icon"
         variant="ghost"
@@ -91,4 +90,6 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
   );
 };
 
-export default CartItem;
+export default memo(CartItem, (prev, next) => {
+  return prev.cartProduct.quantity === next.cartProduct.quantity;
+});

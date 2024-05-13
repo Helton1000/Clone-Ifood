@@ -38,16 +38,14 @@ const Home = async () => {
         <CategoryList />
       </div>
 
-      {/* Grid container para os banners promocionais */}
       <div className="grid grid-cols-1 gap-5 px-5 pt-6 md:grid-cols-2">
-        {/* PromoBanner 1 */}
         <div>
           <PromoBanner
             src="/promo-banner-01.png"
             alt="Até 30% de descontos em pizzas !"
           />
         </div>
-        {/* PromoBanner 2 */}
+
         <div>
           <PromoBanner
             src="/promo-banner-02.png"
