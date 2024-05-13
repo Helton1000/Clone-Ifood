@@ -38,11 +38,22 @@ const Home = async () => {
         <CategoryList />
       </div>
 
-      <div className="px-5 pt-6 md:w-3/5 ">
-        <PromoBanner
-          src="/promo-banner-01.png"
-          alt="Até 30% de descontos em pizzas !"
-        />
+      {/* Grid container para os banners promocionais */}
+      <div className="grid grid-cols-1 gap-5 px-5 pt-6 md:grid-cols-2">
+        {/* PromoBanner 1 */}
+        <div>
+          <PromoBanner
+            src="/promo-banner-01.png"
+            alt="Até 30% de descontos em pizzas !"
+          />
+        </div>
+        {/* PromoBanner 2 */}
+        <div>
+          <PromoBanner
+            src="/promo-banner-02.png"
+            alt="A partir de R$17,90 em lanches"
+          />
+        </div>
       </div>
 
       <div className="space-y-4 pt-6">
@@ -61,13 +72,6 @@ const Home = async () => {
           </Button>
         </div>
         <ProductList products={products} />
-      </div>
-
-      <div className="px-5 pt-6 md:w-3/5">
-        <PromoBanner
-          src="/promo-banner-02.png"
-          alt="A partir de R$17,90 em lanches"
-        />
       </div>
 
       <div className="space-y-4 py-6 pt-6">
