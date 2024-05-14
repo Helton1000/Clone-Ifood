@@ -3,9 +3,9 @@
 import { Restaurant, UserFavoriteRestaurant } from "@prisma/client";
 import { notFound, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { searchForRestaurant } from "../_actions/search";
-import RestaurantItem from "@/app/_components/restaurant-item";
+import { searchForRestaurants } from "../_actions/search";
 import Header from "@/app/_components/header";
+import RestaurantItem from "@/app/_components/restaurant-item";
 
 interface RestaurantProps {
   userFavoriteRestaurants: UserFavoriteRestaurant[];
@@ -20,9 +20,10 @@ const Restaurants = ({ userFavoriteRestaurants }: RestaurantProps) => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       if (!searchFor) return;
-      const foundRestaurants = await searchForRestaurant(searchFor);
+      const foundRestaurants = await searchForRestaurants(searchFor);
       setRestaurants(foundRestaurants);
     };
+
     fetchRestaurants();
   }, [searchFor]);
 
